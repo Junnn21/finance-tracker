@@ -1,0 +1,11 @@
+<div class="mt-2 results-block">
+    <%= render 'layouts/messages' %>
+</div>
+
+<% if @stock %>
+    <div class="mt-2 card card-header results-block">
+        <strong>Symbol: </strong><%= @stock.ticker %>
+        <strong>Name: </strong><%= @stock.name %>
+        <strong>Price: </strong><%= @stock.last_price %>
+    </div>
+<% end %>

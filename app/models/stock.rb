@@ -5,6 +5,10 @@ class Stock < ApplicationRecord
         uri = URI(uriString)
         res = Net::HTTP.get(uri)
         stock = JSON.parse(res) 
-        stock[0]['price']
+        begin 
+            new(ticker: ticker_symbol, name: stock[0]['name'], last_price: stock[0]['price'])
+        rescue => exception
+            return nil 
+        end
     end
 end
